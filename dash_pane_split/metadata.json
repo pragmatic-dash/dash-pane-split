@@ -1,0 +1,153 @@
+{
+  "src/lib/components/DashPaneSplit.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "DashPaneSplit",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "resizerSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "sidebarSize": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "250",
+          "computed": false
+        }
+      },
+      "panelOrder": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'mainFirst'",
+              "computed": false
+            },
+            {
+              "value": "'sidebarFirst'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'mainFirst'",
+          "computed": false
+        }
+      },
+      "splitMode": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'vertical'",
+              "computed": false
+            },
+            {
+              "value": "'horizontal'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'vertical'",
+          "computed": false
+        }
+      },
+      "mainChildren": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Main'",
+          "computed": false
+        }
+      },
+      "sidebarChildren": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Sidebar'",
+          "computed": false
+        }
+      },
+      "mainStyle": {
+        "type": {
+          "name": "custom",
+          "raw": "stylePropType"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{\n    height: \"100%\",\n    width: \"100%\",\n    display: \"flex\",\n    alignItems: \"center\",\n    justifyContent: \"center\",\n}",
+          "computed": false
+        }
+      },
+      "sidebarStyle": {
+        "type": {
+          "name": "custom",
+          "raw": "stylePropType"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{\n    height: \"100%\",\n    width: \"100%\",\n    display: \"flex\",\n    alignItems: \"center\",\n    justifyContent: \"center\",\n}",
+          "computed": false
+        }
+      },
+      "containerStyle": {
+        "type": {
+          "name": "custom",
+          "raw": "stylePropType"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{\n    backgroundColor: \"grey\",\n}",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  }
+}

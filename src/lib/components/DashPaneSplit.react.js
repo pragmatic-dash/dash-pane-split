@@ -53,7 +53,14 @@ export default function DashPaneSplit(props) {
         <SplitPane
             split={splitMode}
             sizes={sizes}
-            onChange={setSizes}
+            onChange={(trySizes) => {
+                if (trySizes[sidebarPanelIndex] <= safeSize) {
+                    setDisplay("none");
+                    trySizes[sidebarPanelIndex] = safeSize;
+                } else {
+                    setDisplay(defaultSidebarDisplay);
+                }
+                setSizes(trySizes)} }
             style={containerStyle}
             resizerSize={resizerSize}
             sashRender={(index, active) => (

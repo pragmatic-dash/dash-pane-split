@@ -1,9 +1,9 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-dashPaneSplit <- function(id=NULL, containerStyle=NULL, mainChildren=NULL, mainStyle=NULL, panelOrder=NULL, resizerSize=NULL, sidebarChildren=NULL, sidebarDefaultSize=NULL, sidebarMaxSize=NULL, sidebarSize=NULL, sidebarStyle=NULL, splitMode=NULL) {
+dashPaneSplit <- function(id=NULL, containerStyle=NULL, mainChildren=NULL, mainStyle=NULL, panelOrder=NULL, sidebarChildren=NULL, sidebarDefaultSize=NULL, sidebarMaxSize=NULL, sidebarSize=NULL, sidebarStyle=NULL, splitMode=NULL) {
     
-    props <- list(id=id, containerStyle=containerStyle, mainChildren=mainChildren, mainStyle=mainStyle, panelOrder=panelOrder, resizerSize=resizerSize, sidebarChildren=sidebarChildren, sidebarDefaultSize=sidebarDefaultSize, sidebarMaxSize=sidebarMaxSize, sidebarSize=sidebarSize, sidebarStyle=sidebarStyle, splitMode=splitMode)
+    props <- list(id=id, containerStyle=containerStyle, mainChildren=mainChildren, mainStyle=mainStyle, panelOrder=panelOrder, sidebarChildren=sidebarChildren, sidebarDefaultSize=sidebarDefaultSize, sidebarMaxSize=sidebarMaxSize, sidebarSize=sidebarSize, sidebarStyle=sidebarStyle, splitMode=splitMode)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -11,7 +11,7 @@ dashPaneSplit <- function(id=NULL, containerStyle=NULL, mainChildren=NULL, mainS
         props = props,
         type = 'DashPaneSplit',
         namespace = 'dash_pane_split',
-        propNames = c('id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'resizerSize', 'sidebarChildren', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarSize', 'sidebarStyle', 'splitMode'),
+        propNames = c('id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'sidebarChildren', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarSize', 'sidebarStyle', 'splitMode'),
         package = 'dashPaneSplit'
         )
 

@@ -6,15 +6,19 @@ import "split-pane-react/esm/themes/default.css";
 import "./style.css";
 
 const defaultContainerStyle = {
-};
-
-const defaultPanelStyle = {
-    height: "100%",
+    position: "relative",
     width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-};
+    height: "100%",
+    overflow: "hidden",
+}
+
+const defaultMainPanelStyle = {
+    overflow: "hidden",
+}
+
+const defaultSidebarPanelStyle = {
+    overflow: "scroll",
+}
 
 /**
  * ExampleComponent is an example component.
@@ -24,14 +28,13 @@ const defaultPanelStyle = {
  * which is editable by the user.
  */
 export default function DashPaneSplit(props) {
-    const { setProps, resizerSize, sidebarSize, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
+    const { setProps, sidebarSize, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
     const sizes = (panelOrder === "mainFirst" ? ["auto", sidebarSize || sidebarDefaultSize] : [sidebarSize || sidebarDefaultSize, "auto"]);
     const safeSize = 15;
     const rSidebarStyle = Object.assign({}, sidebarStyle);
     if (sidebarSize && (sidebarSize <= safeSize)) {
         rSidebarStyle.display = "none";
     }
-
     const rMainStyle = Object.assign({}, mainStyle);
     const mainPanel = <Pane style={rMainStyle} key="main">
         {mainChildren}
@@ -95,10 +98,9 @@ DashPaneSplit.defaultProps = {
     splitMode: 'vertical',
     mainChildren: 'Main',
     sidebarChildren: 'Sidebar',
-    mainStyle: defaultPanelStyle,
-    sidebarStyle: defaultPanelStyle,
+    mainStyle: defaultMainPanelStyle,
+    sidebarStyle: defaultSidebarPanelStyle,
     containerStyle: defaultContainerStyle,
-    resizerSize: 10,
 };
 
 DashPaneSplit.propTypes = {
@@ -106,8 +108,6 @@ DashPaneSplit.propTypes = {
      * The ID used to identify this component in Dash callbacks.
      */
     id: PropTypes.string,
-
-    resizerSize: PropTypes.number,
 
     sidebarMaxSize: PropTypes.number,
 

@@ -1,6 +1,6 @@
 Package: dashPaneSplit
 Title: Project Description
-Version: 0.0.3
+Version: 0.0.4
 Description: Project Description
 Depends: R (>= 3.0.2)
 Imports: 

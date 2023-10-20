@@ -22,17 +22,20 @@
           "computed": false
         }
       },
-      "sidebarSize": {
+      "sidebarMaxSize": {
         "type": {
-          "name": "union",
-          "value": [
-            {
-              "name": "string"
-            },
-            {
-              "name": "number"
-            }
-          ]
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "sidebarDefaultSize": {
+        "type": {
+          "name": "number"
         },
         "required": false,
         "description": "",
@@ -40,6 +43,13 @@
           "value": "250",
           "computed": false
         }
+      },
+      "sidebarSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
       },
       "panelOrder": {
         "type": {
@@ -137,7 +147,7 @@
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "{\n    backgroundColor: \"grey\",\n}",
+          "value": "{\n}",
           "computed": false
         }
       },

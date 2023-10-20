@@ -12,7 +12,8 @@ ExampleComponent is an example component. It takes a property, `label`, and disp
 \usage{
 dashPaneSplit(id=NULL, containerStyle=NULL, mainChildren=NULL,
 mainStyle=NULL, panelOrder=NULL, resizerSize=NULL,
-sidebarChildren=NULL, sidebarSize=NULL, sidebarStyle=NULL,
+sidebarChildren=NULL, sidebarDefaultSize=NULL,
+sidebarMaxSize=NULL, sidebarSize=NULL, sidebarStyle=NULL,
 splitMode=NULL)
 }
 
@@ -31,7 +32,11 @@ splitMode=NULL)
 
 \item{sidebarChildren}{A list of or a singular dash component, string or number. }
 
-\item{sidebarSize}{Character | numeric. }
+\item{sidebarDefaultSize}{Numeric. }
+
+\item{sidebarMaxSize}{Numeric. }
+
+\item{sidebarSize}{Numeric. }
 
 \item{sidebarStyle}{}
 

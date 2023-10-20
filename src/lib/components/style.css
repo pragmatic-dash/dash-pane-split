@@ -16,30 +16,54 @@
 .sash-wrap-line.inactive {
   transition: none;
 }
+
 .action-sash-wrap {
-  width: 100%;
+  width: 1px;
+  position: relative;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   background-color: rgba(0, 0, 0, .1);
 }
 
-.action-sash-wrap.horizontal {
+.action-sash-wrap.pane-horizontal {
   flex-direction: column;
 }
 
 .action-sash-wrap .action {
+  width: 15px;
+  margin-right: 15px;
+  z-index: 2;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 30px;
-  background-color: rgba(0, 0, 0, .3);
+  height: 20px;
+  background-color: rgba(0, 0, 0, .1);
   color: rgba(0, 0, 0, .5);
   font-size: 8px;
 }
 
-.action-sash-wrap.horizontal .action {
-  width: 30px;
+.action-sash-wrap.pane-mainFirst .action {
+  margin-left: 30px;
+}
+
+.action-sash-wrap.pane-horizontal {
+  width: 100%;
+  height: 1px;
+  align-items: end;
+}
+
+.action-sash-wrap.pane-horizontal .action {
+  height: 15px;
+  width: 20px;
+  margin-top: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
 }

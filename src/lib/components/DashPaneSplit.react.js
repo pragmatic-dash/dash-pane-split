@@ -6,7 +6,6 @@ import "split-pane-react/esm/themes/default.css";
 import "./style.css";
 
 const defaultContainerStyle = {
-    backgroundColor: "grey",
 };
 
 const defaultPanelStyle = {
@@ -25,13 +24,14 @@ const defaultPanelStyle = {
  * which is editable by the user.
  */
 export default function DashPaneSplit(props) {
-    const { resizerSize, sidebarSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
-    const [sizes, setSizes] = useState(panelOrder === "mainFirst" ? ["auto", sidebarSize] : [sidebarSize, "auto"]);
-    const [sidebarDisplay, setDisplay] = useState(sidebarStyle.display || "block");
-    const defaultSidebarDisplay = sidebarStyle.display || "block";
-
+    const { setProps, resizerSize, sidebarSize, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
+    const sizes = (panelOrder === "mainFirst" ? ["auto", sidebarSize || sidebarDefaultSize] : [sidebarSize || sidebarDefaultSize, "auto"]);
+    const safeSize = 15;
     const rSidebarStyle = Object.assign({}, sidebarStyle);
-    rSidebarStyle.display = sidebarDisplay;
+    if (sidebarSize && (sidebarSize <= safeSize)) {
+        rSidebarStyle.display = "none";
+    }
+
     const rMainStyle = Object.assign({}, mainStyle);
     const mainPanel = <Pane style={rMainStyle} key="main">
         {mainChildren}
@@ -48,41 +48,36 @@ export default function DashPaneSplit(props) {
         sidebarPanelIndex = 0;
         panels = [sidebarPanel, mainPanel];
     }
-    const safeSize = resizerSize;
+
     return (
         <SplitPane
             split={splitMode}
             sizes={sizes}
             onChange={(trySizes) => {
                 if (trySizes[sidebarPanelIndex] <= safeSize) {
-                    setDisplay("none");
                     trySizes[sidebarPanelIndex] = safeSize;
-                } else {
-                    setDisplay(defaultSidebarDisplay);
+                } else if (sidebarMaxSize > 0 && trySizes[sidebarPanelIndex] > sidebarMaxSize) {
+                    trySizes[sidebarPanelIndex] = sidebarMaxSize;
                 }
-                setSizes(trySizes)} }
+                setProps({ sidebarSize: trySizes[sidebarPanelIndex] });
+            }}
             style={containerStyle}
-            resizerSize={resizerSize}
+            resizerSize={1}
             sashRender={(index, active) => (
-                <SashContent className={"action-sash-wrap " + splitMode}>
+                <SashContent className={"action-sash-wrap pane-" + splitMode + " pane-" + panelOrder}>
                     <span
                         className="action"
                         onClick={() => {
                             const newSizes = [...sizes];
-                            newSizes[sidebarPanelIndex] = newSizes[sidebarPanelIndex] <= safeSize ? sidebarSize : safeSize
-                            if (newSizes[sidebarPanelIndex] === safeSize) {
-                                setDisplay("none");
-                            } else {
-                                setDisplay(defaultSidebarDisplay);
-                            }
-                            setSizes(newSizes);
+                            newSizes[sidebarPanelIndex] = newSizes[sidebarPanelIndex] <= safeSize ? sidebarDefaultSize : safeSize
+                            setProps({ sidebarSize: newSizes[sidebarPanelIndex] });
                         }}
                     >
                         {sizes[sidebarPanelIndex] <= safeSize ? (splitMode === "vertical" ? (
-                            panelOrder === "mainFirst" ? ">" : "<") : (
-                            panelOrder === "mainFirst" ? "⌄" : "⌃")) : (splitMode === "vertical" ? (
-                                panelOrder === "mainFirst" ? "<" : ">") : (
-                                panelOrder === "mainFirst" ? "⌃" : "⌄"))}
+                            panelOrder === "mainFirst" ? "<" : ">") : (
+                            panelOrder === "mainFirst" ? "⌃" : "⌄")) : (splitMode === "vertical" ? (
+                                panelOrder === "mainFirst" ? ">" : "<") : (
+                                panelOrder === "mainFirst" ? "⌄" : "⌃"))}
                     </span>
                 </SashContent>
             )}
@@ -94,7 +89,8 @@ export default function DashPaneSplit(props) {
 }
 
 DashPaneSplit.defaultProps = {
-    sidebarSize: 250,
+    sidebarDefaultSize: 250,
+    sidebarMaxSize: 0,
     panelOrder: 'mainFirst',
     splitMode: 'vertical',
     mainChildren: 'Main',
@@ -113,7 +109,11 @@ DashPaneSplit.propTypes = {
 
     resizerSize: PropTypes.number,
 
-    sidebarSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    sidebarMaxSize: PropTypes.number,
+
+    sidebarDefaultSize: PropTypes.number,
+
+    sidebarSize: PropTypes.number,
 
     panelOrder: PropTypes.oneOf(['mainFirst', 'sidebarFirst']),
 

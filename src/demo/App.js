@@ -42,32 +42,6 @@ class App extends Component {
                         />
                     }
                 />
-                <div style={{height: "100px"}}/>
-
-
-                <DashPaneSplit
-                    splitMode={"vertical"}
-                    panelOrder={"sidebarFirst"}
-                    setProps={this.setProps}
-                />
-                <div style={{height: "100px"}}/>
-                <DashPaneSplit
-                    splitMode={"vertical"}
-                    panelOrder={"mainFirst"}
-                    setProps={this.setProps}
-                />
-                <div style={{height: "100px"}}/>
-                <DashPaneSplit
-                    splitMode={"horizontal"}
-                    panelOrder={"sidebarFirst"}
-                    setProps={this.setProps}
-                />
-                <div style={{height: "100px"}}/>
-                <DashPaneSplit
-                    splitMode={"horizontal"}
-                    panelOrder={"mainFirst"}
-                    setProps={this.setProps}
-                />
             </div>
         )
     }

@@ -19,12 +19,14 @@ Keyword arguments:
 - `panelOrder` (a value equal to: 'mainFirst', 'sidebarFirst'; optional)
 - `resizerSize` (Real; optional)
 - `sidebarChildren` (a list of or a singular dash component, string or number; optional)
-- `sidebarSize` (String | Real; optional)
+- `sidebarDefaultSize` (Real; optional)
+- `sidebarMaxSize` (Real; optional)
+- `sidebarSize` (Real; optional)
 - `sidebarStyle` (optional)
 - `splitMode` (a value equal to: 'vertical', 'horizontal'; optional)
 """
 function dashpanesplit(; kwargs...)
-        available_props = Symbol[:id, :containerStyle, :mainChildren, :mainStyle, :panelOrder, :resizerSize, :sidebarChildren, :sidebarSize, :sidebarStyle, :splitMode]
+        available_props = Symbol[:id, :containerStyle, :mainChildren, :mainStyle, :panelOrder, :resizerSize, :sidebarChildren, :sidebarDefaultSize, :sidebarMaxSize, :sidebarSize, :sidebarStyle, :splitMode]
         wild_props = Symbol[]
         return Component("dashpanesplit", "DashPaneSplit", "dash_pane_split", available_props, wild_props; kwargs...)
 end

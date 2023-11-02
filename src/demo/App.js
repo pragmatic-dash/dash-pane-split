@@ -7,6 +7,9 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            sidebarSize: 200,
+        };
         this.setProps = this.setProps.bind(this);
     }
 
@@ -20,24 +23,36 @@ class App extends Component {
                 <DashPaneSplit
                     splitMode={"vertical"}
                     panelOrder={"sidebarFirst"}
+                    sidebarSize={this.state.sidebarSize}
                     setProps={this.setProps}
                     sidebarChildren={<div>Left Panel</div>}
                     mainChildren={
                         <DashPaneSplit
                             splitMode={"vertical"}
                             panelOrder={"mainFirst"}
+                            sidebarSize={this.state.sidebarSize}
                             setProps={this.setProps}
                             sidebarChildren={<div>Right Panel</div>}
                             mainChildren={
                                 <DashPaneSplit
-                                splitMode={"horizontal"}
-                                panelOrder={"mainFirst"}
-                                setProps={this.setProps}
-                                sidebarChildren={<div>Bottom Panel</div>}
-                                mainChildren={
-                                    <div>Main Panel</div>
-                                }
-                            />
+                                    sidebarSize={this.state.sidebarSize}
+                                    splitMode={"horizontal"}
+                                    panelOrder={"mainFirst"}
+                                    setProps={this.setProps}
+                                    sidebarChildren={<div>Bottom Panel</div>}
+                                    mainChildren={
+                                        <DashPaneSplit
+                                            sidebarSize={this.state.sidebarSize}
+                                            splitMode={"horizontal"}
+                                            panelOrder={"sidebarFirst"}
+                                            setProps={this.setProps}
+                                            sidebarChildren={<div>Top Panel</div>}
+                                            mainChildren={
+                                                <div>Main Panel</div>
+                                            }
+                                        />
+                                    }
+                                />
                             }
                         />
                     }

@@ -40,6 +40,17 @@
         "required": false,
         "description": ""
       },
+      "sidebarTitle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Sidebar'",
+          "computed": false
+        }
+      },
       "panelOrder": {
         "type": {
           "name": "enum",

@@ -22,10 +22,11 @@ Keyword arguments:
 - `sidebarMaxSize` (Real; optional)
 - `sidebarSize` (Real; optional)
 - `sidebarStyle` (optional)
+- `sidebarTitle` (String; optional)
 - `splitMode` (a value equal to: 'vertical', 'horizontal'; optional)
 """
 function dashpanesplit(; kwargs...)
-        available_props = Symbol[:id, :containerStyle, :mainChildren, :mainStyle, :panelOrder, :sidebarChildren, :sidebarDefaultSize, :sidebarMaxSize, :sidebarSize, :sidebarStyle, :splitMode]
+        available_props = Symbol[:id, :containerStyle, :mainChildren, :mainStyle, :panelOrder, :sidebarChildren, :sidebarDefaultSize, :sidebarMaxSize, :sidebarSize, :sidebarStyle, :sidebarTitle, :splitMode]
         wild_props = Symbol[]
         return Component("dashpanesplit", "DashPaneSplit", "dash_pane_split", available_props, wild_props; kwargs...)
 end

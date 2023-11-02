@@ -2,6 +2,10 @@
 
 Dash PaneSplit allows the page area to be split into Main and Sidebar sections, and by combining multiple PaneSplits, a complex and flexible Studio-style experience can be achieved. It is based on the encapsulation and modification of [split-pane-react](https://github.com/yyllff/split-pane-react) and supports a richer set of features needed for practical projects.
 
+```bash
+pip install dash-pane-split
+```
+
 Get started with:
 1. Install Dash and its dependencies: https://dash.plotly.com/installation
 2. Run `python usage.py`

@@ -16,35 +16,51 @@ Keyword arguments:
 - id (string; optional):
     The ID used to identify this component in Dash callbacks.
 
-- containerStyle (default {    position: "relative",    width: "100%",    height: "100%",    overflow: "hidden",})
+- containerStyle (default {    position: "relative",    width: "100%",    height: "100%",    overflow: "hidden",}):
+    The container style.
 
-- mainChildren (a list of or a singular dash component, string or number; default 'Main')
+- mainChildren (a list of or a singular dash component, string or number; default 'Main'):
+    The main children.
 
-- mainStyle (default {    overflow: "hidden",})
+- mainStyle (default {    overflow: "hidden",}):
+    The main panel style.
 
-- panelOrder (a value equal to: 'mainFirst', 'sidebarFirst'; default 'mainFirst')
+- panelOrder (a value equal to: 'mainFirst', 'sidebarFirst'; default 'mainFirst'):
+    The panel order, mainFirst or sidebarFirst, default is mainFirst.
 
-- sidebarActionStyle (optional)
+- sidebarActionStyle (optional):
+    The sidebar action style, default is {}, merge with default style.
 
-- sidebarChildren (a list of or a singular dash component, string or number; default 'Sidebar')
+- sidebarChildren (a list of or a singular dash component, string or number; default 'Sidebar'):
+    The sidebar children.
 
-- sidebarColloapsedFontSize (number; default 16)
+- sidebarColloapsedFontSize (number; default 16):
+    The sidebar colloapsed font size, default is 16.
 
-- sidebarColloapsedSize (number; default 18)
+- sidebarColloapsedSize (number; default 18):
+    The sidebar colloapsed size, default is 18.
 
-- sidebarDefaultSize (number; default 250)
+- sidebarDefaultSize (number; default 250):
+    The default sidebar size (only use when expand click), default is
+    250.
 
-- sidebarMaxSize (number; default 0)
+- sidebarMaxSize (number; default 0):
+    The sidebar max draggable size.
 
-- sidebarMinSize (number; optional)
+- sidebarMinSize (number; optional):
+    The sidebar min draggable size.
 
-- sidebarSize (number; optional)
+- sidebarSize (number; optional):
+    The init sidebar size, default is 250.
 
-- sidebarStyle (default {    overflow: "scroll",})
+- sidebarStyle (default {    overflow: "scroll",}):
+    The sidebar panel style.
 
-- sidebarTitle (string; default 'Sidebar')
+- sidebarTitle (string; default 'Sidebar'):
+    The sidebar title, default is Sidebar.
 
-- splitMode (a value equal to: 'vertical', 'horizontal'; default 'vertical')"""
+- splitMode (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
+    The split mode, vertical or horizontal, default is vertical."""
     _children_props = ['mainChildren', 'sidebarChildren']
     _base_nodes = ['mainChildren', 'sidebarChildren', 'children']
     _namespace = 'dash_pane_split'

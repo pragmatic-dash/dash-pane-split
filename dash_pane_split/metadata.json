@@ -16,7 +16,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar max draggable size",
         "defaultValue": {
           "value": "0",
           "computed": false
@@ -27,7 +27,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar colloapsed size, default is 18",
         "defaultValue": {
           "value": "18",
           "computed": false
@@ -38,7 +38,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar colloapsed font size, default is 16",
         "defaultValue": {
           "value": "16",
           "computed": false
@@ -50,7 +50,7 @@
           "raw": "stylePropType"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar action style, default is {}, merge with default style",
         "defaultValue": {
           "value": "{}",
           "computed": false
@@ -61,14 +61,14 @@
           "name": "number"
         },
         "required": false,
-        "description": ""
+        "description": "The sidebar min draggable size"
       },
       "sidebarDefaultSize": {
         "type": {
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "The default sidebar size (only use when expand click), default is 250",
         "defaultValue": {
           "value": "250",
           "computed": false
@@ -79,14 +79,14 @@
           "name": "number"
         },
         "required": false,
-        "description": ""
+        "description": "The init sidebar size, default is 250"
       },
       "sidebarTitle": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar title, default is Sidebar",
         "defaultValue": {
           "value": "'Sidebar'",
           "computed": false
@@ -107,7 +107,7 @@
           ]
         },
         "required": false,
-        "description": "",
+        "description": "The panel order, mainFirst or sidebarFirst, default is mainFirst",
         "defaultValue": {
           "value": "'mainFirst'",
           "computed": false
@@ -128,7 +128,7 @@
           ]
         },
         "required": false,
-        "description": "",
+        "description": "The split mode, vertical or horizontal, default is vertical",
         "defaultValue": {
           "value": "'vertical'",
           "computed": false
@@ -139,7 +139,7 @@
           "name": "node"
         },
         "required": false,
-        "description": "",
+        "description": "The main children",
         "defaultValue": {
           "value": "'Main'",
           "computed": false
@@ -150,7 +150,7 @@
           "name": "node"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar children",
         "defaultValue": {
           "value": "'Sidebar'",
           "computed": false
@@ -162,7 +162,7 @@
           "raw": "stylePropType"
         },
         "required": false,
-        "description": "",
+        "description": "The main panel style",
         "defaultValue": {
           "value": "{\n    overflow: \"hidden\",\n}",
           "computed": false
@@ -174,7 +174,7 @@
           "raw": "stylePropType"
         },
         "required": false,
-        "description": "",
+        "description": "The sidebar panel style",
         "defaultValue": {
           "value": "{\n    overflow: \"scroll\",\n}",
           "computed": false
@@ -186,7 +186,7 @@
           "raw": "stylePropType"
         },
         "required": false,
-        "description": "",
+        "description": "The container style",
         "defaultValue": {
           "value": "{\n    position: \"relative\",\n    width: \"100%\",\n    height: \"100%\",\n    overflow: \"hidden\",\n}",
           "computed": false

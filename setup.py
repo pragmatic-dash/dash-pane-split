@@ -8,6 +8,9 @@ with open('package.json') as f:
 
 package_name = package["name"].replace(" ", "_").replace("-", "_")
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
     name=package_name,
     version=package["version"],
@@ -16,8 +19,10 @@ setup(
     include_package_data=True,
     license=package['license'],
     description=package.get('description', package_name),
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     install_requires=[],
-    classifiers = [
+    classifiers=[
         'Framework :: Dash',
     ],    
 )

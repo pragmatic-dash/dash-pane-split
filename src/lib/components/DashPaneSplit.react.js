@@ -200,34 +200,79 @@ DashPaneSplit.propTypes = {
      */
     id: PropTypes.string,
 
+    /**
+     * The sidebar max draggable size
+     */
     sidebarMaxSize: PropTypes.number,
 
+    /**
+     * The sidebar colloapsed size, default is 18
+     */
     sidebarColloapsedSize: PropTypes.number,
 
+    /**
+     * The sidebar colloapsed font size, default is 16
+     */
     sidebarColloapsedFontSize: PropTypes.number,
 
+    /**
+     * The sidebar action style, default is {}, merge with default style
+     */
     sidebarActionStyle: stylePropType,
 
+    /**
+     * The sidebar min draggable size
+     */
     sidebarMinSize: PropTypes.number,
 
+    /**
+     * The default sidebar size (only use when expand click), default is 250
+     */
     sidebarDefaultSize: PropTypes.number,
 
+    /**
+     * The init sidebar size, default is 250
+     */
     sidebarSize: PropTypes.number,
 
+    /**
+     * The sidebar title, default is Sidebar
+     */
     sidebarTitle: PropTypes.string,
 
+    /**
+     * The panel order, mainFirst or sidebarFirst, default is mainFirst
+     */
     panelOrder: PropTypes.oneOf(['mainFirst', 'sidebarFirst']),
 
+    /**
+     * The split mode, vertical or horizontal, default is vertical
+     */
     splitMode: PropTypes.oneOf(['vertical', 'horizontal']),
 
+    /**
+     * The main children
+     */
     mainChildren: PropTypes.node.isRequired,
 
+    /**
+     * The sidebar children
+     */
     sidebarChildren: PropTypes.node.isRequired,
 
+    /**
+     * The main panel style
+     */
     mainStyle: stylePropType,
 
+    /**
+     * The sidebar panel style
+     */
     sidebarStyle: stylePropType,
 
+    /**
+     * The container style
+     */
     containerStyle: stylePropType,
 
     setProps: PropTypes.func

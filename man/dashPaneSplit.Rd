@@ -21,35 +21,35 @@ sidebarStyle=NULL, sidebarTitle=NULL, splitMode=NULL)
 \arguments{
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
 
-\item{containerStyle}{}
+\item{containerStyle}{The container style}
 
-\item{mainChildren}{A list of or a singular dash component, string or number. }
+\item{mainChildren}{A list of or a singular dash component, string or number. The main children}
 
-\item{mainStyle}{}
+\item{mainStyle}{The main panel style}
 
-\item{panelOrder}{A value equal to: 'mainfirst', 'sidebarfirst'. }
+\item{panelOrder}{A value equal to: 'mainfirst', 'sidebarfirst'. The panel order, mainFirst or sidebarFirst, default is mainFirst}
 
-\item{sidebarActionStyle}{}
+\item{sidebarActionStyle}{The sidebar action style, default is {}, merge with default style}
 
-\item{sidebarChildren}{A list of or a singular dash component, string or number. }
+\item{sidebarChildren}{A list of or a singular dash component, string or number. The sidebar children}
 
-\item{sidebarColloapsedFontSize}{Numeric. }
+\item{sidebarColloapsedFontSize}{Numeric. The sidebar colloapsed font size, default is 16}
 
-\item{sidebarColloapsedSize}{Numeric. }
+\item{sidebarColloapsedSize}{Numeric. The sidebar colloapsed size, default is 18}
 
-\item{sidebarDefaultSize}{Numeric. }
+\item{sidebarDefaultSize}{Numeric. The default sidebar size (only use when expand click), default is 250}
 
-\item{sidebarMaxSize}{Numeric. }
+\item{sidebarMaxSize}{Numeric. The sidebar max draggable size}
 
-\item{sidebarMinSize}{Numeric. }
+\item{sidebarMinSize}{Numeric. The sidebar min draggable size}
 
-\item{sidebarSize}{Numeric. }
+\item{sidebarSize}{Numeric. The init sidebar size, default is 250}
 
-\item{sidebarStyle}{}
+\item{sidebarStyle}{The sidebar panel style}
 
-\item{sidebarTitle}{Character. }
+\item{sidebarTitle}{Character. The sidebar title, default is Sidebar}
 
-\item{splitMode}{A value equal to: 'vertical', 'horizontal'. }
+\item{splitMode}{A value equal to: 'vertical', 'horizontal'. The split mode, vertical or horizontal, default is vertical}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

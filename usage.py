@@ -10,6 +10,10 @@ defaultPanelStyle = {
     "alignItems": "center",
     "justifyContent": "center",
 }
+mainPanelStyle = {
+    **defaultPanelStyle,
+    "backgroundColor": "red",
+}
 
 app.layout = html.Div(
     [
@@ -34,13 +38,21 @@ app.layout = html.Div(
                     sidebarDefaultSize=200,
                     panelOrder="mainFirst",
                     sidebarChildren=html.Div("Bottom Panel"),
-                    mainChildren=html.Div(
-                        [
-                            html.P("Main Panel"),
-                            html.Button("Mini", id="mini"),
-                            html.Button("Expand", id="button"),
-                            html.Button("Expand if need", id="expand2"),
-                        ]
+                    mainChildren=DashPaneSplit(
+                        splitMode="horizontal",
+                        mainStyle=mainPanelStyle,
+                        sidebarStyle=defaultPanelStyle,
+                        sidebarDefaultSize=200,
+                        panelOrder="sidebarFirst",
+                        sidebarChildren=html.Div("Bottom Panel"),
+                        mainChildren=html.Div(
+                            [
+                                html.P("Main Panel"),
+                                html.Button("Mini", id="mini"),
+                                html.Button("Expand", id="button"),
+                                html.Button("Expand if need", id="expand2"),
+                            ]
+                        ),
                     ),
                 ),
             ),

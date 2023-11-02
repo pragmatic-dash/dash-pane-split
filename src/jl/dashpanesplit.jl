@@ -13,21 +13,21 @@ It renders an input with the property `value`
 which is editable by the user.
 Keyword arguments:
 - `id` (String; optional): The ID used to identify this component in Dash callbacks.
-- `containerStyle` (optional)
-- `mainChildren` (a list of or a singular dash component, string or number; optional)
-- `mainStyle` (optional)
-- `panelOrder` (a value equal to: 'mainFirst', 'sidebarFirst'; optional)
-- `sidebarActionStyle` (optional)
-- `sidebarChildren` (a list of or a singular dash component, string or number; optional)
-- `sidebarColloapsedFontSize` (Real; optional)
-- `sidebarColloapsedSize` (Real; optional)
-- `sidebarDefaultSize` (Real; optional)
-- `sidebarMaxSize` (Real; optional)
-- `sidebarMinSize` (Real; optional)
-- `sidebarSize` (Real; optional)
-- `sidebarStyle` (optional)
-- `sidebarTitle` (String; optional)
-- `splitMode` (a value equal to: 'vertical', 'horizontal'; optional)
+- `containerStyle` (optional): The container style
+- `mainChildren` (a list of or a singular dash component, string or number; optional): The main children
+- `mainStyle` (optional): The main panel style
+- `panelOrder` (a value equal to: 'mainFirst', 'sidebarFirst'; optional): The panel order, mainFirst or sidebarFirst, default is mainFirst
+- `sidebarActionStyle` (optional): The sidebar action style, default is {}, merge with default style
+- `sidebarChildren` (a list of or a singular dash component, string or number; optional): The sidebar children
+- `sidebarColloapsedFontSize` (Real; optional): The sidebar colloapsed font size, default is 16
+- `sidebarColloapsedSize` (Real; optional): The sidebar colloapsed size, default is 18
+- `sidebarDefaultSize` (Real; optional): The default sidebar size (only use when expand click), default is 250
+- `sidebarMaxSize` (Real; optional): The sidebar max draggable size
+- `sidebarMinSize` (Real; optional): The sidebar min draggable size
+- `sidebarSize` (Real; optional): The init sidebar size, default is 250
+- `sidebarStyle` (optional): The sidebar panel style
+- `sidebarTitle` (String; optional): The sidebar title, default is Sidebar
+- `splitMode` (a value equal to: 'vertical', 'horizontal'; optional): The split mode, vertical or horizontal, default is vertical
 """
 function dashpanesplit(; kwargs...)
         available_props = Symbol[:id, :containerStyle, :mainChildren, :mainStyle, :panelOrder, :sidebarActionStyle, :sidebarChildren, :sidebarColloapsedFontSize, :sidebarColloapsedSize, :sidebarDefaultSize, :sidebarMaxSize, :sidebarMinSize, :sidebarSize, :sidebarStyle, :sidebarTitle, :splitMode]

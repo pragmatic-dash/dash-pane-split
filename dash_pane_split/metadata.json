@@ -22,6 +22,40 @@
           "computed": false
         }
       },
+      "sidebarColloapsedSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "18",
+          "computed": false
+        }
+      },
+      "sidebarColloapsedFontSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "16",
+          "computed": false
+        }
+      },
+      "sidebarActionStyle": {
+        "type": {
+          "name": "custom",
+          "raw": "stylePropType"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
       "sidebarMinSize": {
         "type": {
           "name": "number"

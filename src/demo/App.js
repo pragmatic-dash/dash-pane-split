@@ -9,6 +9,8 @@ class App extends Component {
         super(props);
         this.state = {
             sidebarSize: 200,
+            sidebarColloapsedSize: 20,
+            sidebarColloapsedFontSize: 18,
         };
         this.setProps = this.setProps.bind(this);
     }
@@ -24,6 +26,8 @@ class App extends Component {
                     splitMode={"vertical"}
                     panelOrder={"sidebarFirst"}
                     sidebarSize={this.state.sidebarSize}
+                    sidebarColloapsedSize={this.state.sidebarColloapsedSize}
+                    sidebarColloapsedFontSize={this.state.sidebarColloapsedFontSize}
                     sidebarMinSize={100}
                     setProps={this.setProps}
                     sidebarChildren={<div>Left Panel</div>}
@@ -31,7 +35,10 @@ class App extends Component {
                         <DashPaneSplit
                             splitMode={"vertical"}
                             panelOrder={"mainFirst"}
+                            sidebarActionStyle={{display: 'none'}}
                             sidebarSize={this.state.sidebarSize}
+                            sidebarColloapsedSize={this.state.sidebarColloapsedSize}
+                            sidebarColloapsedFontSize={this.state.sidebarColloapsedFontSize}
                             setProps={this.setProps}
                             sidebarChildren={<div>Right Panel</div>}
                             mainChildren={
@@ -40,9 +47,13 @@ class App extends Component {
                                     splitMode={"horizontal"}
                                     panelOrder={"mainFirst"}
                                     setProps={this.setProps}
+                                    sidebarColloapsedSize={this.state.sidebarColloapsedSize}
+                                    sidebarColloapsedFontSize={this.state.sidebarColloapsedFontSize}
                                     sidebarChildren={<div>Bottom Panel</div>}
                                     mainChildren={
                                         <DashPaneSplit
+                                            sidebarColloapsedSize={this.state.sidebarColloapsedSize}
+                                            sidebarColloapsedFontSize={this.state.sidebarColloapsedFontSize}
                                             sidebarSize={this.state.sidebarSize}
                                             splitMode={"horizontal"}
                                             panelOrder={"sidebarFirst"}

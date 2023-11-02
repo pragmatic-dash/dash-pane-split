@@ -24,7 +24,13 @@ Keyword arguments:
 
 - panelOrder (a value equal to: 'mainFirst', 'sidebarFirst'; default 'mainFirst')
 
+- sidebarActionStyle (optional)
+
 - sidebarChildren (a list of or a singular dash component, string or number; default 'Sidebar')
+
+- sidebarColloapsedFontSize (number; default 16)
+
+- sidebarColloapsedSize (number; default 18)
 
 - sidebarDefaultSize (number; default 250)
 
@@ -44,10 +50,10 @@ Keyword arguments:
     _namespace = 'dash_pane_split'
     _type = 'DashPaneSplit'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, sidebarMaxSize=Component.UNDEFINED, sidebarMinSize=Component.UNDEFINED, sidebarDefaultSize=Component.UNDEFINED, sidebarSize=Component.UNDEFINED, sidebarTitle=Component.UNDEFINED, panelOrder=Component.UNDEFINED, splitMode=Component.UNDEFINED, mainChildren=Component.UNDEFINED, sidebarChildren=Component.UNDEFINED, mainStyle=Component.UNDEFINED, sidebarStyle=Component.UNDEFINED, containerStyle=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'sidebarChildren', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarMinSize', 'sidebarSize', 'sidebarStyle', 'sidebarTitle', 'splitMode']
+    def __init__(self, id=Component.UNDEFINED, sidebarMaxSize=Component.UNDEFINED, sidebarColloapsedSize=Component.UNDEFINED, sidebarColloapsedFontSize=Component.UNDEFINED, sidebarActionStyle=Component.UNDEFINED, sidebarMinSize=Component.UNDEFINED, sidebarDefaultSize=Component.UNDEFINED, sidebarSize=Component.UNDEFINED, sidebarTitle=Component.UNDEFINED, panelOrder=Component.UNDEFINED, splitMode=Component.UNDEFINED, mainChildren=Component.UNDEFINED, sidebarChildren=Component.UNDEFINED, mainStyle=Component.UNDEFINED, sidebarStyle=Component.UNDEFINED, containerStyle=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'sidebarActionStyle', 'sidebarChildren', 'sidebarColloapsedFontSize', 'sidebarColloapsedSize', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarMinSize', 'sidebarSize', 'sidebarStyle', 'sidebarTitle', 'splitMode']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'sidebarChildren', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarMinSize', 'sidebarSize', 'sidebarStyle', 'sidebarTitle', 'splitMode']
+        self.available_properties = ['id', 'containerStyle', 'mainChildren', 'mainStyle', 'panelOrder', 'sidebarActionStyle', 'sidebarChildren', 'sidebarColloapsedFontSize', 'sidebarColloapsedSize', 'sidebarDefaultSize', 'sidebarMaxSize', 'sidebarMinSize', 'sidebarSize', 'sidebarStyle', 'sidebarTitle', 'splitMode']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

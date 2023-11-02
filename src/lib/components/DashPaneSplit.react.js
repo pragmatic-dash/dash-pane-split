@@ -28,16 +28,20 @@ const defaultSidebarPanelStyle = {
  * which is editable by the user.
  */
 export default function DashPaneSplit(props) {
-    const { setProps, sidebarSize, sidebarMinSize, sidebarTitle, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
-    const sizes = (panelOrder === "mainFirst" ? ["auto", sidebarSize || sidebarDefaultSize] : [sidebarSize || sidebarDefaultSize, "auto"]);
-    const safeSize = 15;
+    const { setProps, sidebarSize, sidebarActionStyle, sidebarColloapsedSize, sidebarColloapsedFontSize, sidebarMinSize, sidebarTitle, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
+    let aSidebarSize = sidebarSize || sidebarDefaultSize;
+    if (aSidebarSize <= sidebarColloapsedSize) {
+        aSidebarSize = sidebarColloapsedSize;
+    }
+    const sizes = (panelOrder === "mainFirst" ? ["auto", aSidebarSize || sidebarDefaultSize] : [aSidebarSize || sidebarDefaultSize, "auto"]);
+    const safeSize = sidebarColloapsedSize;
     let rSidebarMinSize = sidebarMinSize || safeSize;
     if (sidebarMaxSize > 0 && rSidebarMinSize > sidebarMaxSize) {
         rSidebarMinSize = sidebarMaxSize;
     }
     const rSidebarStyle = Object.assign({}, sidebarStyle);
     let showSidebarTitle = false;
-    if (sidebarSize && (sidebarSize <= safeSize)) {
+    if (aSidebarSize && (aSidebarSize <= safeSize)) {
         rSidebarStyle.display = "none";
         showSidebarTitle = true;
     }
@@ -53,24 +57,63 @@ export default function DashPaneSplit(props) {
         position: "absolute",
         cursor: "pointer",
         color: "rgba(0, 0,0, 0.6)",
-        fontSize: "13px",
+        fontSize: `${sidebarColloapsedFontSize}px`,
         display: (showSidebarTitle ? "inline-block" : "none"),
     }
 
+    const sidebarCollporateStyle = Object.assign({}, {
+        cursor: "pointer",
+        width: `${sidebarColloapsedFontSize}px`,
+        marginRight: `${sidebarColloapsedFontSize}px`,
+        zIndex: 2,
+        position: "absolute",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: `{sidebarColloapsedSize}px`,
+        color: "rgba(0, 0, 0, .5)",
+        fontSize: `${sidebarColloapsedFontSize}px`,
+    }, sidebarActionStyle);
+
+    if (panelOrder === 'mainFirst') {
+        sidebarCollporateStyle.marginLeft = `${sidebarColloapsedFontSize * 2}px`;
+    }
+    if (splitMode === 'horizontal') {
+        sidebarCollporateStyle.height = `${sidebarColloapsedFontSize}px`;
+        sidebarCollporateStyle.width = `${sidebarColloapsedFontSize * 2}px`;
+
+        sidebarCollporateStyle.marginLeft = "0px";
+        sidebarCollporateStyle.marginRight = "0px";
+        sidebarCollporateStyle.alignItems = "baseline";
+        if (panelOrder === 'mainFirst') {
+            sidebarCollporateStyle.marginTop = `${sidebarColloapsedFontSize}px`;
+            if (!showSidebarTitle) {
+                sidebarCollporateStyle.transform = "rotate(-180deg)";
+
+            }
+        } else {
+            sidebarCollporateStyle.marginBottom = `${sidebarColloapsedFontSize}px`;
+            if (showSidebarTitle) {
+                sidebarCollporateStyle.transform = "rotate(-180deg)";
+            }
+        }
+    }
+
+
     if (splitMode === 'vertical') {
         sidebarTitleStyle.top = "30px";
-        sidebarTitleStyle.writingMode = (panelOrder === 'mainFirst'? "vertical-lr" : "vertical-rl");
+        sidebarTitleStyle.writingMode = (panelOrder === 'mainFirst' ? "vertical-lr" : "vertical-rl");
         if (panelOrder === 'mainFirst') {
-            sidebarTitleStyle.left = "-2px";
+            sidebarTitleStyle.left = "0px";
         } else {
-            sidebarTitleStyle.right = "-2px";
+            sidebarTitleStyle.right = "0px";
         }
-    }  else {
+    } else {
         sidebarTitleStyle.right = "30px";
         if (panelOrder === 'mainFirst') {
-            sidebarTitleStyle.top = "-2px";
+            sidebarTitleStyle.top = "0px";
         } else {
-            sidebarTitleStyle.bottom = "-2px";
+            sidebarTitleStyle.bottom = "0px";
         }
     }
 
@@ -88,7 +131,7 @@ export default function DashPaneSplit(props) {
             sizes={sizes}
             onChange={(trySizes) => {
                 if (trySizes[sidebarPanelIndex] <= rSidebarMinSize) {
-                    if (trySizes[sidebarPanelIndex] > sidebarSize) {
+                    if (trySizes[sidebarPanelIndex] > aSidebarSize) {
                         trySizes[sidebarPanelIndex] = rSidebarMinSize;
                     } else {
                         trySizes[sidebarPanelIndex] = safeSize;
@@ -109,12 +152,13 @@ export default function DashPaneSplit(props) {
                             newSizes[sidebarPanelIndex] = newSizes[sidebarPanelIndex] <= safeSize ? sidebarDefaultSize : safeSize
                             setProps({ sidebarSize: newSizes[sidebarPanelIndex] });
                         }}
+                        style={sidebarCollporateStyle}
                     >
                         {sizes[sidebarPanelIndex] <= safeSize ? (splitMode === "vertical" ? (
                             panelOrder === "mainFirst" ? "<" : ">") : (
-                            panelOrder === "mainFirst" ? "⌃" : "⌄")) : (splitMode === "vertical" ? (
+                            panelOrder === "mainFirst" ? "⌃" : "⌃")) : (splitMode === "vertical" ? (
                                 panelOrder === "mainFirst" ? ">" : "<") : (
-                                panelOrder === "mainFirst" ? "⌄" : "⌃"))}
+                                panelOrder === "mainFirst" ? "⌃" : "⌃"))}
                     </span>
                     <span
                         onClick={() => {
@@ -135,6 +179,8 @@ export default function DashPaneSplit(props) {
 
 DashPaneSplit.defaultProps = {
     sidebarDefaultSize: 250,
+    sidebarColloapsedSize: 18,
+    sidebarColloapsedFontSize: 16,
     sidebarMaxSize: 0,
     panelOrder: 'mainFirst',
     splitMode: 'vertical',
@@ -144,6 +190,7 @@ DashPaneSplit.defaultProps = {
     mainStyle: defaultMainPanelStyle,
     sidebarStyle: defaultSidebarPanelStyle,
     containerStyle: defaultContainerStyle,
+    sidebarActionStyle: {},
 };
 
 DashPaneSplit.propTypes = {
@@ -153,6 +200,12 @@ DashPaneSplit.propTypes = {
     id: PropTypes.string,
 
     sidebarMaxSize: PropTypes.number,
+
+    sidebarColloapsedSize: PropTypes.number,
+
+    sidebarColloapsedFontSize: PropTypes.number,
+
+    sidebarActionStyle: stylePropType,
 
     sidebarMinSize: PropTypes.number,
 

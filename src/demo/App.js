@@ -59,6 +59,7 @@ class App extends Component {
                                             panelOrder={"sidebarFirst"}
                                             setProps={this.setProps}
                                             sidebarChildren={<div>Top Panel</div>}
+                                            mainStyle={{backgroundColor: 'red'}}
                                             mainChildren={
                                                 <div>Main Panel</div>
                                             }

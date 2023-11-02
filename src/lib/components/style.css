@@ -24,7 +24,7 @@
   display: flex;
   align-items: start;
   justify-content: center;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .2);
 }
 
 .action-sash-wrap.pane-horizontal {
@@ -45,4 +45,22 @@
 html, body {
   margin: 0px;
   padding: 0px;
+}
+
+.react-split--horizontal > div[role="Resizer"]::before {
+  content: "";
+  display: block;
+  height: 7px;
+  top: -3px;
+  width: 100%;
+  position: absolute;
+}
+
+.react-split--vertical > div[role="Resizer"]::before {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 100%;
+  position: absolute;
+  right: -3px;
 }

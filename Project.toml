@@ -2,7 +2,7 @@
 name = "DashPaneSplit"
 uuid = "1b08a953-4be3-4667-9a23-2b237637f31b"
 authors = ["mapix <mapix.me@gmail.com>"]
-version = "0.0.7"
+version = "0.0.8"
 
 [deps]
 Dash = "1b08a953-4be3-4667-9a23-3db579824955"

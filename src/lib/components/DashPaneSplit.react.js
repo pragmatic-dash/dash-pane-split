@@ -49,7 +49,7 @@ export default function DashPaneSplit(props) {
         position: "absolute",
         cursor: "pointer",
         color: "rgba(0, 0,0, 0.6)",
-        fontSize: "14px",
+        fontSize: "13px",
         display: (showSidebarTitle ? "inline-block" : "none"),
     }
 
@@ -57,16 +57,16 @@ export default function DashPaneSplit(props) {
         sidebarTitleStyle.top = "30px";
         sidebarTitleStyle.writingMode = (panelOrder === 'mainFirst'? "vertical-lr" : "vertical-rl");
         if (panelOrder === 'mainFirst') {
-            sidebarTitleStyle.left = "1px";
+            sidebarTitleStyle.left = "-2px";
         } else {
-            sidebarTitleStyle.right = "1px";
+            sidebarTitleStyle.right = "-2px";
         }
     }  else {
         sidebarTitleStyle.right = "30px";
         if (panelOrder === 'mainFirst') {
-            sidebarTitleStyle.top = "1px";
+            sidebarTitleStyle.top = "-2px";
         } else {
-            sidebarTitleStyle.bottom = "1px";
+            sidebarTitleStyle.bottom = "-2px";
         }
     }
 

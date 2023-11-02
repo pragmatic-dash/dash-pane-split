@@ -13,8 +13,8 @@ ExampleComponent is an example component. It takes a property, `label`, and disp
 dashPaneSplit(id=NULL, containerStyle=NULL, mainChildren=NULL,
 mainStyle=NULL, panelOrder=NULL, sidebarChildren=NULL,
 sidebarDefaultSize=NULL, sidebarMaxSize=NULL,
-sidebarSize=NULL, sidebarStyle=NULL, sidebarTitle=NULL,
-splitMode=NULL)
+sidebarMinSize=NULL, sidebarSize=NULL, sidebarStyle=NULL,
+sidebarTitle=NULL, splitMode=NULL)
 }
 
 \arguments{
@@ -33,6 +33,8 @@ splitMode=NULL)
 \item{sidebarDefaultSize}{Numeric. }
 
 \item{sidebarMaxSize}{Numeric. }
+
+\item{sidebarMinSize}{Numeric. }
 
 \item{sidebarSize}{Numeric. }
 

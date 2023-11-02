@@ -24,6 +24,7 @@ class App extends Component {
                     splitMode={"vertical"}
                     panelOrder={"sidebarFirst"}
                     sidebarSize={this.state.sidebarSize}
+                    sidebarMinSize={100}
                     setProps={this.setProps}
                     sidebarChildren={<div>Left Panel</div>}
                     mainChildren={

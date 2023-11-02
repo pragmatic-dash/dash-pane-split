@@ -1,6 +1,6 @@
 {
   "name": "dash_pane_split",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Project Description",
   "main": "build/index.js",
   "scripts": {

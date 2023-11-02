@@ -28,9 +28,13 @@ const defaultSidebarPanelStyle = {
  * which is editable by the user.
  */
 export default function DashPaneSplit(props) {
-    const { setProps, sidebarSize, sidebarTitle, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
+    const { setProps, sidebarSize, sidebarMinSize, sidebarTitle, sidebarDefaultSize, sidebarMaxSize, panelOrder, splitMode, mainChildren, sidebarChildren, mainStyle, sidebarStyle, containerStyle } = props;
     const sizes = (panelOrder === "mainFirst" ? ["auto", sidebarSize || sidebarDefaultSize] : [sidebarSize || sidebarDefaultSize, "auto"]);
     const safeSize = 15;
+    let rSidebarMinSize = sidebarMinSize || safeSize;
+    if (sidebarMaxSize > 0 && rSidebarMinSize > sidebarMaxSize) {
+        rSidebarMinSize = sidebarMaxSize;
+    }
     const rSidebarStyle = Object.assign({}, sidebarStyle);
     let showSidebarTitle = false;
     if (sidebarSize && (sidebarSize <= safeSize)) {
@@ -83,8 +87,12 @@ export default function DashPaneSplit(props) {
             split={splitMode}
             sizes={sizes}
             onChange={(trySizes) => {
-                if (trySizes[sidebarPanelIndex] <= safeSize) {
-                    trySizes[sidebarPanelIndex] = safeSize;
+                if (trySizes[sidebarPanelIndex] <= rSidebarMinSize) {
+                    if (trySizes[sidebarPanelIndex] > sidebarSize) {
+                        trySizes[sidebarPanelIndex] = rSidebarMinSize;
+                    } else {
+                        trySizes[sidebarPanelIndex] = safeSize;
+                    }
                 } else if (sidebarMaxSize > 0 && trySizes[sidebarPanelIndex] > sidebarMaxSize) {
                     trySizes[sidebarPanelIndex] = sidebarMaxSize;
                 }
@@ -145,6 +153,8 @@ DashPaneSplit.propTypes = {
     id: PropTypes.string,
 
     sidebarMaxSize: PropTypes.number,
+
+    sidebarMinSize: PropTypes.number,
 
     sidebarDefaultSize: PropTypes.number,
 

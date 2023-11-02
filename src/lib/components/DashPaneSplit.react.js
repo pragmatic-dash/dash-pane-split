@@ -106,6 +106,7 @@ export default function DashPaneSplit(props) {
         if (panelOrder === 'mainFirst') {
             sidebarTitleStyle.left = "0px";
         } else {
+            sidebarTitleStyle.transform = "rotate(-180deg)";
             sidebarTitleStyle.right = "0px";
         }
     } else {

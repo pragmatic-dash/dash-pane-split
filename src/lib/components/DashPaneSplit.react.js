@@ -146,7 +146,7 @@ export default function DashPaneSplit(props) {
             sashRender={(index, active) => (
                 <SashContent className={"action-sash-wrap pane-" + splitMode + " pane-" + panelOrder}>
                     <span
-                        className="action"
+                        className="react-pane-split-action"
                         onClick={() => {
                             const newSizes = [...sizes];
                             newSizes[sidebarPanelIndex] = newSizes[sidebarPanelIndex] <= safeSize ? sidebarDefaultSize : safeSize

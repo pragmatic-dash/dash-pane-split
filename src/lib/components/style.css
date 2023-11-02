@@ -32,7 +32,7 @@
 }
 
 
-.action-sash-wrap .action:hover {
+.action-sash-wrap .react-pane-split-action:hover {
   color: rgba(0, 0, 0, .8);
 }
 
